@@ -1,4 +1,5 @@
 import tkinter as tk
+import external_links
 
 
 class Example(tk.Frame):
@@ -60,12 +61,27 @@ class Example(tk.Frame):
         exportanimelist = tk.Menu(self, tearoff=False)
         externallinks = tk.Menu(self, tearoff=False)
 
-        toolsmenu.add_cascade(label='Export anime list', menu=exportanimelist)
-        toolsmenu.add_cascade(label='External links', menu=externallinks)
-        toolsmenu.add_checkbutton(label='Enable anime recognition', onvalue=1, offvalue=False)
-        toolsmenu.add_checkbutton(label='Enable auto sharing', onvalue=1, offvalue=False)
-        toolsmenu.add_checkbutton(label='Enable auto synchronization')
-        toolsmenu.add_cascade(label='Settings')
+        toolsmenu.insert_cascade(index=0, label='Export anime list', menu=exportanimelist)
+        toolsmenu.insert_cascade(index=1, label='External links', menu=externallinks)
+        toolsmenu.insert_checkbutton(index=3, label='Enable anime recognition', onvalue=1, offvalue=False)
+        toolsmenu.insert_checkbutton(index=4, label='Enable auto sharing', onvalue=1, offvalue=False)
+        toolsmenu.insert_checkbutton(index=5, label='Enable auto synchronization')
+        toolsmenu.insert_cascade(index=7, label='Settings')
+        toolsmenu.insert_separator(index=2)
+        toolsmenu.insert_separator(index=6)
+
+        exportanimelist.insert_cascade(index=0, label='Export as Markdown')
+        exportanimelist.insert_cascade(index=1, label='Export as MyAnimeList XML')
+
+        externallinks.insert_cascade(index=0, label='Hibari', command=lambda: self.open_external_links('hibari'))
+        externallinks.insert_cascade(index=1, label='MALgraph', command=lambda: self.open_external_links('malgraph'))
+        externallinks.insert_cascade(index=3, label='AniChart', command=lambda: self.open_external_links('anichart'))
+        externallinks.insert_cascade(index=4, label='Monthly.moe', command=lambda: self.open_external_links('monthly_moe'))
+        externallinks.insert_cascade(index=5, label='Senpai Anime Charts', command=lambda: self.open_external_links('senpai_anime_charts'))
+        externallinks.insert_cascade(index=7, label='Anime Streaming Search Engine', command=lambda: self.open_external_links('anime_streaming_search_engine'))
+        externallinks.insert_cascade(index=8, label='The Fansub Database', command=lambda: self.open_external_links('the_fansub_database'))
+        externallinks.insert_separator(index=2)
+        externallinks.insert_separator(index=6)
 
         # view menu items
         viewmenu.insert_radiobutton(index=0, label='Now Playing')
@@ -84,6 +100,12 @@ class Example(tk.Frame):
         helpmenu.insert_cascade(index=1, label='Support                   F11')
         helpmenu.insert_cascade(index=3, label='Check for updates')
         helpmenu.insert_separator(index=2)
+
+    def open_external_links(self, extlink):
+        try:
+            external_links.OpenLink(extlink)
+        except KeyError as e:
+            print(f"Key error on the value {e}")
 
 
 if __name__ == "__main__":
