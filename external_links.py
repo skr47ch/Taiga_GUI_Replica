@@ -6,7 +6,8 @@ link_dict = {'hibari': 'https://hibari.moe/',
              'monthly_moe': 'https://www.monthly.moe/weekly',
              'senpai_anime_charts': 'http://www.senpai.moe/?mode=calendar',
              'anime_streaming_search_engine': 'https://because.moe/',
-             'the_fansub_database': 'https://fansubdb.com/'
+             'the_fansub_database': 'https://fansubdb.com/',
+             'help_support': 'https://taiga.moe/#support'
              }
 
 

@@ -3,31 +3,33 @@ import external_links
 
 
 class Example(tk.Frame):
+
     def __init__(self, root):
+
         tk.Frame.__init__(self, root)
-        self.root = root
         self.menubar = tk.Menu(self)
+
         self.make_menubar()
-        self.root.configure(menu=self.menubar)
+
+        root.configure(menu=self.menubar)
 
     def make_menubar(self):
-        # File
         self.filemenu = tk.Menu(self, tearoff=False)
         self.menubar.insert_cascade(index=1, label='File', menu=self.filemenu)
         self.make_filemenu()
-        # Services
+
         self.servicesmenu = tk.Menu(self, tearoff=False)
         self.menubar.insert_cascade(index=2, label='Services', menu=self.servicesmenu)
         self.make_servicesmenu()
-        # Tools
+
         self.toolsmenu = tk.Menu(self, tearoff=False)
         self.menubar.insert_cascade(index=3, label='Tools', menu=self.toolsmenu)
         self.make_toolsmenu()
-        # View
+
         self.viewmenu = tk.Menu(self, tearoff=False)
         self.menubar.insert_cascade(index=4, label='View', menu=self.viewmenu)
         self.make_viewmenu()
-        # Help
+
         self.helpmenu = tk.Menu(self, tearoff=False)
         self.menubar.insert_cascade(index=5, label='Help', menu=self.helpmenu)
         self.make_helpmenu()
@@ -39,7 +41,7 @@ class Example(tk.Frame):
         self.filemenu.insert_cascade(index=1, label='Scan available episodes'),
         self.filemenu.insert_cascade(index=3, label='Play next episodes          Ctrl+N')
         self.filemenu.insert_cascade(index=4, label='Play random anime        Ctrl+R')
-        self.filemenu.insert_cascade(index=6, label='Exit', command=self.root.quit)
+        self.filemenu.insert_cascade(index=6, label='Exit', command=root.quit)
         self.filemenu.insert_separator(index=2)
         self.filemenu.insert_separator(index=5)
 
@@ -86,10 +88,14 @@ class Example(tk.Frame):
         externallinks.insert_cascade(index=0, label='Hibari', command=lambda: self.open_external_links('hibari'))
         externallinks.insert_cascade(index=1, label='MALgraph', command=lambda: self.open_external_links('malgraph'))
         externallinks.insert_cascade(index=3, label='AniChart', command=lambda: self.open_external_links('anichart'))
-        externallinks.insert_cascade(index=4, label='Monthly.moe', command=lambda: self.open_external_links('monthly_moe'))
-        externallinks.insert_cascade(index=5, label='Senpai Anime Charts', command=lambda: self.open_external_links('senpai_anime_charts'))
-        externallinks.insert_cascade(index=7, label='Anime Streaming Search Engine', command=lambda: self.open_external_links('anime_streaming_search_engine'))
-        externallinks.insert_cascade(index=8, label='The Fansub Database', command=lambda: self.open_external_links('the_fansub_database'))
+        externallinks.insert_cascade(index=4, label='Monthly.moe',
+                                     command=lambda: self.open_external_links('monthly_moe'))
+        externallinks.insert_cascade(index=5, label='Senpai Anime Charts',
+                                     command=lambda: self.open_external_links('senpai_anime_charts'))
+        externallinks.insert_cascade(index=7, label='Anime Streaming Search Engine',
+                                     command=lambda: self.open_external_links('anime_streaming_search_engine'))
+        externallinks.insert_cascade(index=8, label='The Fansub Database',
+                                     command=lambda: self.open_external_links('the_fansub_database'))
         externallinks.insert_separator(index=2)
         externallinks.insert_separator(index=6)
 
@@ -106,8 +112,7 @@ class Example(tk.Frame):
 
     def make_helpmenu(self):
         self.helpmenu.insert_cascade(index=0, label='About Taiga')
-        self.helpmenu.insert_cascade(index=1, label='Support                   F11'
-                                     , command=lambda: self.open_external_links('help_support'))
+        self.helpmenu.insert_cascade(index=1, label='Support                   F11')
         self.helpmenu.insert_cascade(index=3, label='Check for updates')
         self.helpmenu.insert_separator(index=2)
 
