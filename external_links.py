@@ -10,7 +10,6 @@ link_dict = {'hibari': 'https://hibari.moe/',
              'help_support': 'https://taiga.moe/#support'
              }
 
-
 class OpenLink:
     def __init__(self, exlink):
         # print(link_dict[exlink])

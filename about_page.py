@@ -8,5 +8,6 @@ about_body = 'Taiga 1.3.1 \n\n' \
              ', ConnorKrammer, Soinou, Jiyuu, ryban, tollyx' \
              ', pavelxdd, gunt3001, synthtech\n\n'
 
-
-messagebox.showinfo('About', about_body)
+class AboutPage:
+    def __init__(self):
+        messagebox.showinfo('About', about_body)

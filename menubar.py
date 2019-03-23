@@ -1,6 +1,6 @@
 import tkinter as tk
 import external_links
-
+import about_page
 
 class Example(tk.Frame):
     def __init__(self, root):
@@ -37,7 +37,7 @@ class Example(tk.Frame):
 
         self.filemenu.insert_cascade(index=0, label='Library Folders', menu=library_folders)
         self.filemenu.insert_cascade(index=1, label='Scan available episodes'),
-        self.filemenu.insert_cascade(index=3, label='Play next episodes          Ctrl+N')
+        self.filemenu.insert_cascade(index=3, label='Play next episodes       Ctrl+N')
         self.filemenu.insert_cascade(index=4, label='Play random anime        Ctrl+R')
         self.filemenu.insert_cascade(index=6, label='Exit', command=self.root.quit)
         self.filemenu.insert_separator(index=2)
@@ -105,8 +105,8 @@ class Example(tk.Frame):
         self.viewmenu.insert_separator(index=7)
 
     def make_helpmenu(self):
-        self.helpmenu.insert_cascade(index=0, label='About Taiga')
-        self.helpmenu.insert_cascade(index=1, label='Support                   F11'
+        self.helpmenu.insert_cascade(index=0, label='About Taiga', command=self.about_taiga)
+        self.helpmenu.insert_cascade(index=1, label='Support    F11'
                                      , command=lambda: self.open_external_links('help_support'))
         self.helpmenu.insert_cascade(index=3, label='Check for updates')
         self.helpmenu.insert_separator(index=2)
@@ -117,6 +117,8 @@ class Example(tk.Frame):
         except KeyError as e:
             print(f"Key error on the value {e}")
 
+    def about_taiga(self):
+        about_page.AboutPage()
 
 if __name__ == "__main__":
     root = tk.Tk()
