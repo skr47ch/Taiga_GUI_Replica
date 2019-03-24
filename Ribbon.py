@@ -16,25 +16,29 @@ class Ribbon(tk.Frame):
         self.ribbon_vert_separator_1 = ttk.Separator(self.ribbon, orient='vertical')
         self.ribbon_vert_separator_1.place(x=35, relheight=0.9)
         self.ribbon_vert_separator_2 = ttk.Separator(self.ribbon, orient='vertical')
-        self.ribbon_vert_separator_2.place(x=120, relheight=0.9)
+        self.ribbon_vert_separator_2.place(x=140, relheight=0.9)
 
         # Ribbon buttons
-        self.refresh_icon = ImageTk.PhotoImage(Image.open('refresh-xxl.png').resize((28, 28)))
-        self.add_new_folder_icon = ImageTk.PhotoImage(Image.open('folder.png').resize((28, 28)))
-        self.external_link_icon = ImageTk.PhotoImage(Image.open('external-link-icon.png').resize((25, 25)))
+        self.refresh_icon = ImageTk.PhotoImage(Image.open('refresh-xxl.png').resize((25, 25)))
+        self.add_new_folder_icon = ImageTk.PhotoImage(Image.open('folder.png').resize((25, 25)))
+        self.external_link_icon = ImageTk.PhotoImage(Image.open('external-link-icon.png').resize((20, 20)))
+        self.external_link_icon2 = ImageTk.PhotoImage(Image.open('external-link-icon.png').resize((18, 20)))
 
         self.refresh_label = ttk.Label(self.ribbon)
-        self.add_new_folder_label = ttk.Label(self.ribbon)
-        self.external_link_label = ttk.Label(self.ribbon)
+        self.add_new_folder_label = ttk.Menubutton(self.ribbon)
+        self.external_link_label = ttk.Menubutton(self.ribbon)
+        self.external_link_label2 = ttk.Label(self.ribbon)
 
         self.refresh_label.config(image=self.refresh_icon)
         self.add_new_folder_label.config(image=self.add_new_folder_icon)
         self.external_link_label.config(image=self.external_link_icon)
+        self.external_link_label2.config(image=self.external_link_icon2)
 
         self.refresh_label.place(x=2, y=2, width=30, height=30)
-        self.add_new_folder_label.place(x=45, y=2, width=30, height=30)
-        self.external_link_label.place(x=80, y=2, width=30, height=30)
-
+        self.add_new_folder_label.place(x=40, y=2, width=45, height=30)
+        self.external_link_label.place(x=90, y=2, width=45, height=30)
+        # self.external_link_label2.place(x=130, y=2, width=50, height=30)
+        #
         # Search field
         self.search_anime = ttk.Entry(self.ribbon)
         self.search_anime.place(x=200, y=3.5, width=200, height=25)
