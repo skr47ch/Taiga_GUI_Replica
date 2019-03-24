@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 import Menubar
 import Ribbon
+import LeftPane
 
 username = 'skr47ch'
 
@@ -12,6 +13,9 @@ class AppWindow(tk.Frame):
 
         Menubar.Menubar(root)
         Ribbon.Ribbon(root)
+        LeftPane.LeftPane(root)
+
+
 
 if __name__ == '__main__':
     root = tk.Tk()
