@@ -2,7 +2,7 @@ import tkinter as tk
 import external_links
 import about_page
 
-class Example(tk.Frame):
+class Menubar(tk.Frame):
     def __init__(self, root):
         tk.Frame.__init__(self, root)
         self.root = root
@@ -123,7 +123,7 @@ class Example(tk.Frame):
 if __name__ == "__main__":
     root = tk.Tk()
     root.minsize(500, 300)
-    Example(root)
+    Menubar(root)
     root.mainloop()
 
 
