@@ -1,6 +1,6 @@
 import tkinter as tk
-import ExternalLinks
-import AboutPage
+import external_links
+import about_page
 
 class Menubar(tk.Frame):
     def __init__(self, root):
@@ -113,12 +113,12 @@ class Menubar(tk.Frame):
 
     def open_external_links(self, extlink):
         try:
-            ExternalLinks.OpenLink(extlink)
+            external_links.OpenLink(extlink)
         except KeyError as e:
             print(f"Key error on the value {e}")
 
     def about_taiga(self):
-        AboutPage.AboutPage()
+        about_page.AboutPage()
 
 if __name__ == "__main__":
     root = tk.Tk()
