@@ -1,7 +1,8 @@
 import tkinter as tk
-from tkinter import ttk
 import Menubar
 import Ribbon
+import LeftPane
+import DisplayWindow
 
 username = 'skr47ch'
 
@@ -12,11 +13,13 @@ class AppWindow(tk.Frame):
 
         Menubar.Menubar(root)
         Ribbon.Ribbon(root)
+        DisplayWindow.DisplayWindow(root)
+        LeftPane.LeftPane(root)
 
 if __name__ == '__main__':
     root = tk.Tk()
     root.title(f'NiseTaiga - {username}')
-    root.minsize(500, 300)
+    root.minsize(800, 500)
     AppWindow(root)
     root.mainloop()
 
