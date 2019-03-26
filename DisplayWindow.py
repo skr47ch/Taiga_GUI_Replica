@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+import CurrentlyWatching
 
 _bgcolor = 'white'  # X11 color: #f5deb3
 
@@ -11,11 +12,10 @@ class DisplayWindow(tk.Frame):
         self.frame.place(x=150, y=35, relwidth=1, relheight=0.90)
 
         notebook = ttk.Notebook(self.frame)
-        notebook.style = ttk.Style()
-        notebook.style.configure('.', background=_bgcolor)
 
         self.tab_currently_watching = ttk.Frame(notebook)
         notebook.add(self.tab_currently_watching,  text='Currently Watching (0)')
+        CurrentlyWatching.CurrentlyWatching(self.tab_currently_watching)
 
         self.tab_completed = ttk.Frame(notebook)
         notebook.add(self.tab_completed, text='Completed (0)')
@@ -30,3 +30,10 @@ class DisplayWindow(tk.Frame):
         notebook.add(self.tab_plan_to_watch, text='Plan to Watch (0)')
 
         notebook.place(relwidth=1, relheight=1)
+
+if __name__ == '__main__':
+    root = tk.Tk()
+    root.title(f'NiseTaiga')
+    root.minsize(1000, 500)
+    DisplayWindow(root)
+    root.mainloop()
