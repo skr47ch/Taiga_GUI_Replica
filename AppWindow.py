@@ -19,7 +19,7 @@ class AppWindow(tk.Frame):
 if __name__ == '__main__':
     root = tk.Tk()
     root.title(f'NiseTaiga - {username}')
-    root.minsize(800, 500)
+    root.minsize(1000, 500)
     AppWindow(root)
     root.mainloop()
 
