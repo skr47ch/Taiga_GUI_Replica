@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
-class CurrentlyWatching(tk.Frame):
+class DisplayPanedWindow(tk.Frame):
     def __init__(self, cont):
         tk.Frame.__init__(self, cont)
 
@@ -51,5 +51,5 @@ if __name__ == '__main__':
     root = tk.Tk()
     root.title(f'NiseTaiga')
     root.minsize(1000, 500)
-    CurrentlyWatching(root)
+    DisplayPanedWindow(root)
     root.mainloop()
