@@ -2,7 +2,7 @@ import tkinter as tk
 import Menubar
 import Ribbon
 import LeftPane
-import DisplayWindow
+import Tabs
 
 username = 'skr47ch'
 
@@ -13,7 +13,7 @@ class AppWindow(tk.Frame):
 
         Menubar.Menubar(root)
         Ribbon.Ribbon(root)
-        DisplayWindow.DisplayWindow(root)
+        Tabs.Tabs(root)
         LeftPane.LeftPane(root)
 
 if __name__ == '__main__':
