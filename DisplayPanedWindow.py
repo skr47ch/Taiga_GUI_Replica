@@ -3,9 +3,10 @@ from tkinter import ttk
 
 class DisplayPanedWindow(tk.Frame):
     def __init__(self, cont):
+        self.cont = cont
         tk.Frame.__init__(self, cont)
 
-        panel = tk.PanedWindow(cont, orient='horizontal')
+        panel = tk.PanedWindow(self.cont, orient='horizontal')
         panel.configure(sashrelief='groove', sashwidth=1.5)
         panel.pack(fill='both', expand=1)
 
@@ -33,7 +34,6 @@ class DisplayPanedWindow(tk.Frame):
         panel.paneconfigure(pane_season, minsize=200)
         panel.paneconfigure(pane_end, minsize=100)
 
-
         label_anime_title = tk.Label(pane_anime_title, text='Anime title')
         label_progress = tk.Label(pane_progress, text='Progress')
         label_score = tk.Label(pane_score, text='Score')
@@ -46,6 +46,15 @@ class DisplayPanedWindow(tk.Frame):
         label_type.place(x=5)
         label_season.place(x=5)
 
+        self.add_label(pane_anime_title, 'Title')
+        self.add_label(pane_progress, 'Progress')
+        self.add_label(pane_score, 'Score')
+        self.add_label(pane_type, 'Type')
+        self.add_label(pane_season, 'Season')
+
+    def add_label(self, cont, text):
+        label = tk.Label(cont, text=f'Here goes {text}')
+        label.place(x=0, y=50)
 
 if __name__ == '__main__':
     root = tk.Tk()
