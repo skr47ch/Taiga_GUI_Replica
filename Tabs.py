@@ -34,14 +34,18 @@ class Tabs(tk.Frame):
 
         notebook.place(relwidth=1, relheight=1)
 
-        d1 = DisplayPanedWindow.DisplayPanedWindow(self.tab_currently_watching)
-        d1.add_entry('Mushishi', '30/34', '10', 'Anime', 'Summer 2010', 20)
-        d1.add_entry('Mushishi', '30/34', '10', 'Anime', 'Summer 2010', 50)
-        d1.add_entry('Mushishi', '30/34', '10', 'Anime', 'Summer 2010', 90)
+        currently_watching = DisplayPanedWindow.DisplayPanedWindow(self.tab_currently_watching)
+        completed = DisplayPanedWindow.DisplayPanedWindow(self.tab_completed)
+        on_hold = DisplayPanedWindow.DisplayPanedWindow(self.tab_on_hold)
+        dropped = DisplayPanedWindow.DisplayPanedWindow(self.tab_dropped)
+        plan_to_watch = DisplayPanedWindow.DisplayPanedWindow(self.tab_plan_to_watch)
 
-        f1 = DisplayPanedWindow.DisplayPanedWindow(self.tab_plan_to_watch)
-        f1.add_entry('Mushishi', '30/34', '10', 'Anime', 'Summer 2010', 30)
-        f1.add_entry('Mushishi2', '30/34', '10', 'Anime', 'Summer 2010', 50)
+        currently_watching.add_entry('Mushishi', '30/34', '10', 'Anime', 'Summer 2010', 30)
+        currently_watching.add_entry('Haikyuu', '65/70', '9', 'Anime', 'Spring 2001', 50)
+        currently_watching.add_entry('Deathnote', '1/1', '8.5', 'Movie', 'Summer 2012', 70)
+
+        plan_to_watch.add_entry('One Piece', '650/800', '8', 'Anime', 'Summer 2000', 30)
+        plan_to_watch.add_entry('Bleach', '24/40', '7', 'Anime', 'Spring 2011', 50)
 
 if __name__ == '__main__':
     root = tk.Tk()
