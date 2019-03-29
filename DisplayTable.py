@@ -2,7 +2,10 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import font
 
-headers = [' ', 'Anime Title', 'Progress', 'Score', 'Type', 'Season', '']
+headers = ['', 'Anime Title', 'Progress', 'Score', 'Type', 'Season', ' ']
+default_width = [15, 250, 100, 50, 70, 80, 450]
+min_width = [15, 100, 100, 50, 70, 80, 400]
+align = ['nw', 'nw', 'n', 'n', 'n', 'e', 'e']
 
 class DisplayTable(tk.Frame):
     def __init__(self, cont):
@@ -26,12 +29,12 @@ class DisplayTable(tk.Frame):
         hsb.grid(column=0, row=1, sticky='ew', in_=container)
 
     def build_tree(self):
-        for header in headers:
-            self.tree.heading(header, text=header.title(),
+        for header, width, minwidth, anchor  in zip(headers, default_width, min_width, align):
+            self.tree.heading(header, text=header.title(), anchor=anchor,
                               command=lambda h=header: sort_by(self.tree, h, 0))
 
             # adjust the column's width to header string
-            self.tree.column(header, width=font.Font().measure(header.title()))
+            self.tree.column(header, width=width, minwidth=minwidth, anchor=anchor)
 
         # for item in anime list:
         #     self.tree.insert('', 'end', values=item)
