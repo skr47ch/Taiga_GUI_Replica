@@ -19,10 +19,10 @@ class Ribbon(tk.Frame):
         self.ribbon_vert_separator_2.place(x=140, relheight=0.9)
 
         # Ribbon buttons
-        self.refresh_icon = ImageTk.PhotoImage(Image.open('refresh-xxl.png').resize((25, 25)))
-        self.add_new_folder_icon = ImageTk.PhotoImage(Image.open('folder.png').resize((25, 25)))
-        self.external_link_icon = ImageTk.PhotoImage(Image.open('external-link-icon.png').resize((20, 20)))
-        self.external_link_icon2 = ImageTk.PhotoImage(Image.open('external-link-icon.png').resize((18, 20)))
+        self.refresh_icon = ImageTk.PhotoImage(Image.open('Icons/refresh-xxl.png').resize((25, 25)))
+        self.add_new_folder_icon = ImageTk.PhotoImage(Image.open('Icons/folder.png').resize((25, 25)))
+        self.external_link_icon = ImageTk.PhotoImage(Image.open('Icons/external-link-icon.png').resize((20, 20)))
+        self.external_link_icon2 = ImageTk.PhotoImage(Image.open('Icons/refresh-xxl.png').resize((18, 20)))
 
         self.refresh_label = ttk.Label(self.ribbon)
         self.add_new_folder_label = ttk.Menubutton(self.ribbon)
