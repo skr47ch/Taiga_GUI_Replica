@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import ttk
-from tkinter import font
 
 headers = ['', 'Anime Title', 'Progress', 'Score', 'Type', 'Season', ' ']
 default_width = [15, 250, 100, 50, 70, 80, 450]

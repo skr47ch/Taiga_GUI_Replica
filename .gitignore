@@ -115,8 +115,8 @@ venv.bak/
 .idea/sonarlint/
 .idea/vcs.xml
 .idea/workspace.xml
-external-link-icon.png
-folder.png
-refresh-xxl.png
+venv/Icons/external-link-icon.png
+venv/Icons/folder.png
+venv/Icons/refresh-xxl.png
 /.idea/dictionaries/skr47ch.xml
 /.gitignore

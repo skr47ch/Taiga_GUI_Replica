@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import DisplayTable
+import MAL_API
 
 _bgcolor = 'white'  # X11 color: #f5deb3
 
@@ -34,12 +35,22 @@ class Tabs(tk.Frame):
         notebook.pack(fill='both', expand=True)
 
         # test data
-        current_list.insert_new(['', 'Mushishi', '30/34', '10', 'Anime', 'Summer 2010'])
-        current_list.insert_new(['', 'Haikyuu', '65/70', '9', 'Anime', 'Spring 2001'])
-        current_list.insert_new(['', 'Deathnote', '1/2', '8.5', 'Movie', 'Summer 2012'])
+        for item in MAL_API.watching:
+            current_list.insert_new([item['anime_airing_status'],
+                    item['anime_title'],
+                    str(item['num_watched_episodes']) + "/" + str(item['anime_num_episodes']),
+                    item['score'],
+                    item['anime_media_type_string'],
+                    item['anime_start_date_string']])
 
-        completed_list.insert_new(['', 'Hikaru no Go', '22/22', '9', 'Anime', 'Spring 2011'])
-        completed_list.insert_new(['', 'Hunter X Hunter', '340/340', '8.5', 'Anime', 'Fall 2012'])
+        for item in MAL_API.completed:
+            completed_list.insert_new([item['anime_airing_status'],
+                    item['anime_title'],
+                    str(item['num_watched_episodes']) + "/" + str(item['anime_num_episodes']),
+                    item['score'],
+                    item['anime_media_type_string'],
+                    item['anime_start_date_string']])
+
 
 if __name__ == '__main__':
     root = tk.Tk()
