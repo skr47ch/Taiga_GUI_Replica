@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import DisplayTable
-import MAL_API
+import Jikan
 
 _bgcolor = 'white'  # X11 color: #f5deb3
 
@@ -20,8 +20,8 @@ class Tabs(tk.Frame):
         self.tab_dropped = ttk.Frame(notebook)
         self.tab_plan_to_watch = ttk.Frame(notebook)
 
-        notebook.add(self.tab_currently_watching,  text='Currently Watching (0)')
-        notebook.add(self.tab_completed, text='Completed (0)')
+        notebook.add(self.tab_currently_watching,  text=f'Currently Watching ({len(Jikan.watching)})')
+        notebook.add(self.tab_completed, text=f'Completed ({len(Jikan.completed)})')
         notebook.add(self.tab_on_hold, text='On Hold (0)')
         notebook.add(self.tab_dropped, text='Dropped (0)')
         notebook.add(self.tab_plan_to_watch, text='Plan to Watch (0)')
@@ -34,22 +34,21 @@ class Tabs(tk.Frame):
 
         notebook.pack(fill='both', expand=True)
 
-        # test data
-        for item in MAL_API.watching:
-            current_list.insert_new([item['anime_airing_status'],
-                    item['anime_title'],
-                    str(item['num_watched_episodes']) + "/" + str(item['anime_num_episodes']),
-                    item['score'],
-                    item['anime_media_type_string'],
-                    item['anime_start_date_string']])
+        for anime in Jikan.watching:
+            current_list.insert_new([anime['airing_status']
+              , anime['title']
+              , str(anime['watched_episodes']) + "/" + str(anime['total_episodes'])
+              , anime['type']
+              , anime['score']
+              , str(anime['season_name']) + "  " + str(anime['season_year'])])
 
-        for item in MAL_API.completed:
-            completed_list.insert_new([item['anime_airing_status'],
-                    item['anime_title'],
-                    str(item['num_watched_episodes']) + "/" + str(item['anime_num_episodes']),
-                    item['score'],
-                    item['anime_media_type_string'],
-                    item['anime_start_date_string']])
+        for anime in Jikan.completed:
+            completed_list.insert_new([anime['airing_status']
+              , anime['title']
+              , str(anime['watched_episodes']) + "/" + str(anime['total_episodes'])
+              , anime['type']
+              , anime['score']
+              , str(anime['season_name']) + "  " + str(anime['season_year'])])
 
 
 if __name__ == '__main__':
