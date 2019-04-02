@@ -1,4 +1,5 @@
 from jikanpy import jikan
+import time
 
 jikan = jikan.Jikan()
 username_ = 'skr47ch'
@@ -9,16 +10,22 @@ anime_profile = jikan.user(username=username_, request='profile')['anime_stats']
 # anime lists
 watching = []
 completed  = []
+onhold = []
+dropped = []
+plantowatch = []
 
-page_num=1
-while len(watching) < anime_profile['watching']:
-    watching.extend(jikan.user(username=username_, request='animelist', argument='watching', page=page_num)['anime'])
-    page_num += 1
+print(anime_profile)
 
-page_num=1
-while len(completed) < anime_profile['completed']:
-    completed.extend(jikan.user(username=username_, request='animelist', argument='completed', page=page_num)['anime'])
-    page_num += 1
+for item, name in zip([watching, completed, dropped]
+        , ['watching', 'completed', 'dropped']):
+    page_num = 1
+    while len(item) < anime_profile[name]:
+        item.extend(jikan.user(username=username_, request='animelist', argument=name, page=page_num)['anime'])
+        page_num += 1
+
+
+
+
 
 # testing
-print(anime_profile['days_watched'], anime_profile['watching'], anime_profile['completed'])
+# print(anime_profile['days_watched'], anime_profile['watching'], anime_profile['completed'])
