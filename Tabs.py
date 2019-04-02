@@ -44,21 +44,6 @@ class Tabs(tk.Frame):
                                          , anime['score']
                                          , str(anime['season_name']) + "  " + str(anime['season_year'])])
 
-        # for anime in Jikan.watching:
-        #     watching_list.insert_new([anime['airing_status']
-        #       , anime['title']
-        #       , str(anime['watched_episodes']) + "/" + str(anime['total_episodes'])
-        #       , anime['type']
-        #       , anime['score']
-        #       , str(anime['season_name']) + "  " + str(anime['season_year'])])
-        #
-        # for anime in Jikan.completed:
-        #     completed_list.insert_new([anime['airing_status']
-        #       , anime['title']
-        #       , str(anime['watched_episodes']) + "/" + str(anime['total_episodes'])
-        #       , anime['type']
-        #       , anime['score']
-        #       , str(anime['season_name']) + "  " + str(anime['season_year'])])
 
 
 if __name__ == '__main__':
