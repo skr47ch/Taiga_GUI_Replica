@@ -23,6 +23,12 @@ class DisplayTable(tk.Frame):
 
         self.tree.configure(yscrollcommand=vsb.set)
         self.tree.configure(xscrollcommand=hsb.set)
+
+        # Cant figure out how to get scrollbar to the right and bottom
+        # self.tree.place(relheight=1, relwidth=1)
+        # vsb.place(relheight=1, width=20, anchor='nw')
+
+        # Cant figure out how to fill screen with grid
         self.tree.grid(column=0, row=0, sticky='nsew', in_=container)
         vsb.grid(column=1, row=0, sticky='ns', in_=container)
         hsb.grid(column=0, row=1, sticky='ew', in_=container)
@@ -34,14 +40,6 @@ class DisplayTable(tk.Frame):
 
             # adjust the column's width to header string
             self.tree.column(header, width=width, minwidth=minwidth, anchor=anchor)
-
-        # for item in anime list:
-        #     self.tree.insert('', 'end', values=item)
-        #     # adjust column's width if necessary to fit each value
-        #     for ix, val in enumerate(item):
-        #         col_w = tkFont.Font().measure(val)
-        #         if self.tree.column(car_header[ix],width=None)<col_w:
-        #             self.tree.column(car_header[ix], width=col_w)
 
     def insert_new(self, anime_list):
         self.tree.insert('', 'end', values=anime_list)

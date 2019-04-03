@@ -14,10 +14,12 @@ watching, completed, onhold, dropped, plantowatch = [], [], [], [], []
 for item, name in zip([watching, completed, onhold, dropped, plantowatch]
         , ['watching', 'completed', 'onhold', 'dropped', 'plantowatch']):
     page_num = 1
-    while len(item) < anime_profile[name]:
-        item.extend(jikan.user(username=username_, request='animelist', argument=name, page=page_num)['anime'])
-        page_num += 1
-
+    try:
+        while len(item) < anime_profile[name]:
+            item.extend(jikan.user(username=username_, request='animelist', argument=name, page=page_num)['anime'])
+            page_num += 1
+    except Exception:
+        pass
 
 
 
