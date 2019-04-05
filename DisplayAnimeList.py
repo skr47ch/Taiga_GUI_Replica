@@ -6,7 +6,7 @@ default_width = [15, 250, 100, 50, 70, 80, 450]
 min_width = [15, 100, 100, 50, 70, 80, 400]
 align = ['nw', 'nw', 'n', 'n', 'n', 'e', 'e']
 
-class DisplayTable(tk.Frame):
+class DisplayAnimeList(tk.Frame):
     def __init__(self, cont):
         tk.Frame.__init__(self, cont)
         self.root = cont
@@ -17,7 +17,7 @@ class DisplayTable(tk.Frame):
         container = ttk.Frame(self.root)
         container.pack(fill='both', expand=True)
 
-        self.tree = ttk.Treeview(columns=headers, show="headings")
+        self.tree = ttk.Treeview(columns=headers, show="headings", height=30)
         vsb = ttk.Scrollbar(orient='vertical', command=self.tree.yview)
         hsb = ttk.Scrollbar(orient='horizontal', command=self.tree.xview)
 
@@ -62,6 +62,6 @@ def sort_by(tree, col, descending):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    new_list = DisplayTable(root)
+    new_list = DisplayAnimeList(root)
     new_list.insert_new(['Act', 'Mushishi', '22/41', '9', 'Anime', 'Fall 2000'])
     root.mainloop()

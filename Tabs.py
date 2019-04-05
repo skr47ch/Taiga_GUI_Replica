@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-import DisplayTable
+import DisplayAnimeList
 import Jikan
 
 _bgcolor = 'white'  # X11 color: #f5deb3
@@ -26,11 +26,11 @@ class Tabs(tk.Frame):
         notebook.add(self.tab_dropped, text=f'Dropped ({len(Jikan.dropped)})')
         notebook.add(self.tab_plan_to_watch, text=f'Plan to Watch ({len(Jikan.plantowatch)})')
 
-        watching_list = DisplayTable.DisplayTable(self.tab_currently_watching)
-        completed_list = DisplayTable.DisplayTable(self.tab_completed)
-        onhold_list = DisplayTable.DisplayTable(self.tab_on_hold)
-        dropped_list = DisplayTable.DisplayTable(self.tab_dropped)
-        plantowatch_list = DisplayTable.DisplayTable(self.tab_plan_to_watch)
+        watching_list = DisplayAnimeList.DisplayAnimeList(self.tab_currently_watching)
+        completed_list = DisplayAnimeList.DisplayAnimeList(self.tab_completed)
+        onhold_list = DisplayAnimeList.DisplayAnimeList(self.tab_on_hold)
+        dropped_list = DisplayAnimeList.DisplayAnimeList(self.tab_dropped)
+        plantowatch_list = DisplayAnimeList.DisplayAnimeList(self.tab_plan_to_watch)
 
         notebook.pack(fill='both', expand=True)
 
