@@ -15,13 +15,13 @@ class DisplayStatistics(tk.Frame):
         separator_animelist.pack(fill='x', padx='5')
 
         # Data
-        animelist_animecount = ttk.Label(self.root, text=f"Anime count:     {jikan.anime_count}")
+        animelist_animecount = ttk.Label(self.root, text=f"Anime count : {jikan.anime_count:>14}")
         animelist_animecount.pack(anchor='nw', padx=15)
-        animelist_animecount = ttk.Label(self.root, text=f"Episode count:     {jikan.episode_count}")
+        animelist_animecount = ttk.Label(self.root, text=f"Episode count : {jikan.episode_count:>14}")
         animelist_animecount.pack(anchor='nw', padx=15)
-        animelist_animecount = ttk.Label(self.root, text=f"Days watched:     {jikan.days_watched}")
+        animelist_animecount = ttk.Label(self.root, text=f"Days watched : {jikan.days_watched:>15}")
         animelist_animecount.pack(anchor='nw', padx=15)
-        animelist_animecount = ttk.Label(self.root, text=f"Mean score:     {jikan.mean_score}")
+        animelist_animecount = ttk.Label(self.root, text=f"Mean score :  {jikan.mean_score:>17}")
         animelist_animecount.pack(anchor='nw', padx=15)
 
 
